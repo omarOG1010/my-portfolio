@@ -1,38 +1,623 @@
+
+
+
 .App {
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav.navbar {
+  width:18em;
+  height: fit-content;
+  padding-left: 0.5em; 
+  padding-right: 0.5em; 
+  right: 0.1em;
+  left: 0.1em;
+  z-index: 3;
+
+  /* Add this to remove any default margins */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+div.container{
+  padding: 0%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* edits color of inside the pill */
+.navbar .navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-direction: row;
+
+}
+
+
+.navbar .navbar-nav .nav-link {
+  color: white;
+  font-size: 0.85em;
+  transition: background-color 0.3s ease;
+  padding: 0.5em 1em; /* Adjust padding if necessary */
+  border-radius: 3.125em; /* Make all links pill-shaped */
+  text-align: center; /* Center align text within each link */
+  flex: 1; /* Make all links take equal space */
+  max-width: 5em; /* Set a max-width for consistency */
+  max-height: 3em;
+}
+
+.navbar .navbar-nav .nav-link:hover::after {
+  opacity: 1;
+}
+
+.navbar .navbar-nav .nav-link::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.125em;
+  background: white;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link.active:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/* 
+@media (max-width: 991px) { shit looks a bit goofy on this for some reason
+  nav.navbar {
+    width: 90vw;
+  }
+
+  .navbar .navbar-nav {
+    gap: 0.5em;
+  }
+
+  .navbar .navbar-nav .nav-link {
+    font-size: 0.75em;
+    padding: 0.25em 0.5em;
+    max-width: 4em;
+    max-height: 2em;
+  }
+} */
+
+/* Media query for smartphone-sized screens */
+@media (max-width: 480px) {
+  
+
+  .navbar .navbar-nav {
+    gap: 0.25em;
+    flex-direction: row;
+  }
+  nav.navbar {
+    width:15em;
+    height: fit-content;
+    padding-left: 0.5em; 
+    padding-right: 0.5em; 
+    right: 0.1em;
+    left: 0.1em;
+    z-index: 3;
+  
+    /* Add this to remove any default margins */
+  }
+  
+  div.container{
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* edits color of inside the pill */
+  .navbar .navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.1em;
+  
+  }
+  
+  
+  .navbar .navbar-nav .nav-link {
+    color: white;
+    font-size: 0.825em;
+    transition: background-color 0.3s ease;
+    padding: 0.25em 0.5em; /* Adjust padding if necessary */
+    border-radius: 3.125em; /* Make all links pill-shaped */
+    text-align: center; /* Center align text within each link */
+    flex: 1; /* Make all links take equal space */
+    max-width: 5em; /* Set a max-width for consistency */
+    max-height: 3em;
+  }
+  
+  .navbar .navbar-nav .nav-link:hover::after {
+    opacity: 0;
+  }
+  
+  .navbar .navbar-nav .nav-link::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0.125em;
+    background: white;
+    transition: 0.3s;
+    opacity: 0;
+  }
+  
+  .navbar .navbar-nav .nav-link.active,
+  .navbar .navbar-nav .nav-link.active:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  
+}
+
+.scroll-buttons {
+  position: fixed;
+  bottom: 1.25em;
+  right: 1.25em;
+  z-index: 3;
+}
+
+.scroll-button {
+  margin: 0.1em;
+  font-size: 1.5em;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.centered-text-area {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0; /* Ensure it's above other content */
+  text-align: center; /* Center align the text */
+  width: 100%; /* Ensure it takes full width */
+  color: black;
+}
+
+.centered-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  font-size: 1.6em;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.centered-text.show {
+  opacity: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.intro-section {
+  height: 220vh; /* adjust according to flex of other panel to make that one bigger */
+  background-color: #0AC0FF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%231e5aff'/%3E%3Cstop offset='1' stop-color='%231e5aff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%232713ff'/%3E%3Cstop offset='1' stop-color='%232713ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23a027ff'/%3E%3Cstop offset='1' stop-color='%23a027ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230AC0FF'/%3E%3Cstop offset='1' stop-color='%230AC0FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%235D32FF'/%3E%3Cstop offset='1' stop-color='%235D32FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23EB1CFF'/%3E%3Cstop offset='1' stop-color='%23EB1CFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: filter 0.5s ease;
+}
+
+.intro-panel:nth-child(2) {
+  position: relative;
+  flex: 1.20; /* Adjust flex value to make this panel bigger */
+}
+
+.intro-panel:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(0.625em);
+  z-index: 1;
+}
+
+.intro-panel:nth-child(2) > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.project-section {
+  height: 270vh; /* adjust according to flex of other panel to make that one bigger */
+  background-color: #D70CFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233110ff'/%3E%3Cstop offset='1' stop-color='%233110ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230c78ff'/%3E%3Cstop offset='1' stop-color='%230c78ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2310ffdd'/%3E%3Cstop offset='1' stop-color='%2310ffdd' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23D70CFF'/%3E%3Cstop offset='1' stop-color='%23D70CFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%231397FF'/%3E%3Cstop offset='1' stop-color='%231397FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230CFF4F'/%3E%3Cstop offset='1' stop-color='%230CFF4F' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.project-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: filter 0.5s ease;
+}
+
+.project-panel:nth-child(2) {
+  position: relative;
+  flex: 1.70; /* Adjust flex value to make this panel bigger */
+}
+
+.project-panel:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(0.625em);
+  z-index: 1;
+}
+
+.project-panel:nth-child(2) > * {
+  position: relative;
+  z-index: 2;
+}
+
+.fun-section {
+  height: 220vh; /* adjust according to flex of other panel to make that one bigger */
+  background-color: #FF4617;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff1bc7'/%3E%3Cstop offset='1' stop-color='%23ff1bc7' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23c112ff'/%3E%3Cstop offset='1' stop-color='%23c112ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%231649ff'/%3E%3Cstop offset='1' stop-color='%231649ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF4617'/%3E%3Cstop offset='1' stop-color='%23FF4617' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%235F1FFF'/%3E%3Cstop offset='1' stop-color='%235F1FFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230CBDFF'/%3E%3Cstop offset='1' stop-color='%230CBDFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.fun-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: filter 0.5s ease;
+}
+
+.fun-panel:nth-child(2) {
+  position: relative;
+  flex: 1.20; /* Adjust flex value to make this panel bigger */
+}
+
+.fun-panel:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(0.625em);
+  z-index: 1;
+}
+
+.fun-panel:nth-child(2) > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.contact-section {
+  height: 220vh; /* adjust according to flex of other panel to make that one bigger */
+  background-color: #AA0AFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23d50dd3'/%3E%3Cstop offset='1' stop-color='%23d50dd3' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%237e05ff'/%3E%3Cstop offset='1' stop-color='%237e05ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23a908d3'/%3E%3Cstop offset='1' stop-color='%23a908d3' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23AA0AFF'/%3E%3Cstop offset='1' stop-color='%23AA0AFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF10A7'/%3E%3Cstop offset='1' stop-color='%23FF10A7' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%235200FF'/%3E%3Cstop offset='1' stop-color='%235200FF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.contact-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: filter 0.5s ease;
+}
+
+.contact-panel:nth-child(2) {
+  position: relative;
+  flex: 1.20; /* Adjust flex value to make this panel bigger */
+}
+
+.contact-panel:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(0.625em);
+  z-index: 1;
+}
+
+.contact-panel:nth-child(2) > * {
+  position: relative;
+  z-index: 2;
+}
+
+.intro-text-container {
+  width: 36%; /* Adjust width of entire text block  */
+  text-align: left; /* Center-align the text */
+  word-wrap: break-word; /* Ensure long text wraps correctly */
+  font-family: "DM Sans", sans-serif;
+  font-size: 1em;  
+}
+
+.about-section,
+.location-section,
+.graduating-section,
+.courses-section,
+.skills-section {
+  margin: 1.3em 0;
+  font-family: "DM Sans", sans-serif;
+}
+
+.grey{
+  color: rgb(190, 188, 188);
+  font-weight: 350;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.97em;
+}
+
+.header-3{
+  font-size: 1em;
+  font-weight: 700;
+  font-family: "DM Sans", sans-serif;
+  margin: 0%;
+  padding: 0%;
+}
+
+.DM{
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 0.97em;
+}
+
+.bold-DM{
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+}
+
+
+
+.projects-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em; /* Adjust the gap between project cards as needed */
+  width: 100%;
+  height: 80%;
+  margin-left: 17em;
+  margin-right: 17em;
+}
+
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1 1 calc(33.333% - 32px); /* Ensure three items per row */
+  box-sizing: border-box;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  border-radius: 6px;
+  text-align: center; /* Center text alignment */
+  height: 49%;
+  padding: 1em; /* Add padding for inner spacing */
+}
+
+.project-image-container {
+  width: 100%;
+  height: 19em; /* Adjust as needed */
+  overflow: hidden;
+  border-radius: 6px;
+  position: relative;
+  display: inline-block;
+}
+
+button {
+  position: relative;
+  
+  transform: translate(-50%, -95%);
+  /* background-color: black; Adjust background color and opacity */
+  outline: none;
+  cursor: pointer;
+  background-color:black;
+  border: none;
+}
+
+.prev-button {
+  right: -7.1em;
+  bottom: 0.5em;
+  border-radius: 5px;
+}
+
+.next-button{
+  left: 7.4em;
+  bottom: 0.5em;
+  border-radius: 5px;
+  
+}
+
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proj-name {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 1.3em;
+  margin-top: 0.6em;
+}
+
+
+.proj-text {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  color: rgb(190, 188, 188);
+  font-size: 0.93em;
+  width: 100%; /* Make the text span the full width */
+  margin-left: 0.1em; /* Align with left margin */
+  word-wrap: break-word;
+  line-height: 1.25em;
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+
+.proj-perks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: -0.5em;
+}
+
+.proj-perk {
+  font-size: 12px;
+  font-weight: 300;
+  background: #00000080;
+  border-radius: 6px;
+  padding: 4px 6px;
+  color: white;
+  margin-right: 5px; /* Add some margin for spacing between perks */
+  margin-bottom: 3px;;
+ 
+}
+
+.click {
+  cursor: pointer;
+  text-align: left;
+  padding: 0%;
+  margin: 0%;
+}
+
+
+.contact-info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 0.2em;
+  margin-top: 10em;
+}
+
+
+.contact-info-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  gap: 0.3em;
+  
+}
+
+.contact-word{
+  color: white;
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+
+}
+
+
+
+.svg-height{
+  height: 1.5em;
+}
+
+
+/* Default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+.not-bold-robo-slab{
+  font-family: "Roboto Slab", serif;
+  font-weight: 200;
+}
+
+.bold-robo-slab{
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+
+}
+
+
+
+
+
+
+/* #replace-me {
+  color: white;
+}
+
+#replace-me:after {
+  content: "I've worked on";
+  animation: spin 8s linear infinite, fade-in-out 8s linear infinite;
+  /* loop */
+  /* animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+
+} */
+
+/* @keyframes spin {
+  0% {
+    content: " I've worked on";
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    content: " I'm working on";
   }
 }
+ */ 
