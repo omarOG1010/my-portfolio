@@ -38,7 +38,7 @@ function App() {
         <h1 className={`centered-text ${currentSection === 'Intro' && 'show'}`}> <span className='not-bold-robo-slab'>Welcome, I'm</span> <span className='bold-robo-slab'>Omar</span></h1>
         <h1 className={`centered-text  ${currentSection === 'Projects' && 'show'}`}>  
           <span className='not-bold-robo-slab'>Here are some</span> <span className='bold-robo-slab'>projects</span> <span className='not-bold-robo-slab' > I've worked on </span></h1>
-        <h1 className={`centered-text ${currentSection === 'Fun' && 'show'}`}>Fun</h1>
+        <h1 className={`centered-text ${currentSection === 'Fun' && 'show'}`}> <span className='not-bold-robo-slab'>Now, let's have some </span> <span className='bold-robo-slab'>fun</span></h1>
         <h1 className={`centered-text ${currentSection === 'Contact' && 'show'}`}> <span className='not-bold-robo-slab' >Here's how you can </span> <span className='bold-robo-slab'>contact</span> <span className='not-bold-robo-slab' > me</span></h1>
       </div>
 
@@ -225,7 +225,78 @@ function App() {
       <section id="Fun" className='fun-section'>
         <div className="fun-panel"></div>
         <div className="fun-panel">
+          <div className="fun-area">
+            <div className="fun" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+           
 
+              <p className='fun-text'> Whenever I see a <span className='bold-DM'>film</span> I dissolve myself in it - <span className='bold-DM'>Abbas Kairostami</span></p>
+              <p className='fun-text'> <span className='bold-DM'>Cinema</span> is the ultimate pervert art. It doesn't give you what you desire it tells you how to desire. -<span className='bold-DM'>Slavoj Žižek</span> </p>
+              <img src="imgs/collage1.jpg" alt="Cinema" className="fun-image" />
+
+              <p className='fun-text'>I'll forever be in debt to this medium. So, I've decided to contribute to it by writing a couple of short films
+                Until they're done here's a bunch of my favorite films and Tv shows</p>
+
+                <div className="movie-list">
+                  <div className="list-container">
+                    <ol className="list-half">
+                      <li>City of God</li>
+                      <li>Django</li>
+                      <li>La Haine</li>
+                      <li>Hot Fuzz</li>
+                      <li>Manchester by The Sea </li>
+                    </ol>
+                    <ol className="list-half">
+                      <li>The Sopranos</li>
+                      <li>Succession</li>
+                      <li>Wild Wild Country</li>
+                      <li>F is for Family</li>
+                      <li>Atlanta</li>
+                    </ol>
+                    <ol className="list-half">
+                      <li>Ramy</li>
+                      <li>Castlevania</li>
+                      <li>Love Death Robots</li>
+                      <li>Top Boy</li>
+                      <li>The Death of Stalin</li>
+                    </ol>
+                  </div>
+                </div>
+
+            </div>
+
+            <div className="fun" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
+              <p className='fun-text'>An emotional debt is hard to square - <span className='bold-DM'> Iceberg Slim</span></p>
+              <p className='fun-text'> It is we who fabricate our truths and it is not reality that makes us believe - <span className='bold-DM'>Paul Veyne</span></p>
+              <img src="imgs/books.jpg" alt="books" className="fun-image" />
+
+              <p className='fun-text'>I used to hate reading books, since I'm primarily a visual learner, but overtime I changed. 
+                I faced many challenges towards my goals and mentality with which led me to the books listed here. </p>
+              
+                <div className="book-list">
+                  <ul className="horizontal-list">
+                    <li>Did The Greeks Believe in Their Myths</li>
+                    <li>Pimp: The Story of My Life</li>
+                    <li>Egypt's Housing Crisis</li>
+                    
+                  </ul>
+                </div>
+              
+            </div>
+
+            <div className="fun" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000">
+              <p className='fun-text'> <span className='bold-DM'>Football</span> or Soccer is more than a sport. It's a moment, a vibe, a culture that's in all of us. 
+                If you're lucky like me you got to unlock it with friends on a beach, in the streets, on a pitch, or in a stadium if you're really lucky
+              </p>
+
+              <img src="imgs/barca.jpg" alt="football" className="fun-image"/>
+              <img src="imgs/foot.jpg" alt="football" className="fun-image"/>
+
+              
+                    
+                
+              
+            </div>
+          </div>
         </div>
 
       </section>

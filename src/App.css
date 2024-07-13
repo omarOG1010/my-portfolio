@@ -551,10 +551,87 @@ button {
 
 }
 
-
-
 .svg-height{
   height: 1.5em;
+}
+
+.fun-area {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1em; /* Adjust the gap between project cards as needed */
+  width: 100%;
+  height: 100%;
+  margin-left: 9em;
+  margin-right: 9em;
+  gap: 1em;
+}
+
+.fun {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 25%;
+  margin-top: 4em;
+
+}
+.fun-image{
+  height: 200px;
+  width: 300px;
+  border-radius: 10px;
+  margin-bottom: 1em;
+
+}
+
+.fun-header{
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  color: white;
+  font-size: 1.5em;
+  text-align: left; 
+  word-wrap: break-word;
+}
+
+.fun-text{
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 1em;
+  text-align: left; 
+  word-wrap: break-word;
+}
+
+.list-container {
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: row;
+  gap: 2em;
+}
+
+.list-half {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-half li {
+  margin-bottom: 10px; /* Adjust as needed */
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+}
+
+.horizontal-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 2em;
+}
+
+.horizontal-list li {
+  margin-right: 20px; /* Adjust spacing between items as needed */
+  font-weight: 300;
 }
 
 
