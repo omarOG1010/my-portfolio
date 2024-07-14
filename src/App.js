@@ -226,7 +226,7 @@ function App() {
         <div className="fun-panel"></div>
         <div className="fun-panel">
           <div className="fun-area">
-            <div className="fun" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+            <div className="fun"  data-aos-duration="2000" data-aos-delay="500">
            
 
               <p className='fun-text'> Whenever I see a <span className='bold-DM'>film</span> I dissolve myself in it - <span className='bold-DM'>Abbas Kairostami</span></p>
@@ -264,7 +264,7 @@ function App() {
 
             </div>
 
-            <div className="fun" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
+            <div className="fun"  data-aos-duration="2000" data-aos-delay="1000">
               <p className='fun-text'>An emotional debt is hard to square - <span className='bold-DM'> Iceberg Slim</span></p>
               <p className='fun-text'> It is we who fabricate our truths and it is not reality that makes us believe - <span className='bold-DM'>Paul Veyne</span></p>
               <img src="imgs/books.jpg" alt="books" className="fun-image" />
@@ -283,7 +283,7 @@ function App() {
               
             </div>
 
-            <div className="fun" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000">
+            <div className="fun"  data-aos-duration="2000" data-aos-delay="2000">
               <p className='fun-text'> <span className='bold-DM'>Football</span> or Soccer is more than a sport. It's a moment, a vibe, a culture that's in all of us. 
                 If you're lucky like me you got to unlock it with friends on a beach, in the streets, on a pitch, or in a stadium if you're really lucky
               </p>

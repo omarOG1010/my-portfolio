@@ -41,9 +41,11 @@ export const ScrollButtons = () => {
   };
 
   return (
-    <div className="scroll-buttons">
-      <FaChevronCircleUp className="scroll-button" onClick={scrollToPreviousSection} />
-      <FaChevronCircleDown className="scroll-button" onClick={scrollToNextSection} />
+    <div className="scroll-buttons-container">
+      <div className="scroll-buttons">
+        <FaChevronCircleUp className="scroll-button" onClick={scrollToPreviousSection} />
+        <FaChevronCircleDown className="scroll-button" onClick={scrollToNextSection} />
+      </div>
     </div>
   );
 };
