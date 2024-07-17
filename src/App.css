@@ -1200,7 +1200,7 @@ button {
     flex-wrap: nowrap;
     height: 5%;
     width: 100%;
-    gap: 5%;
+    gap: 10%;
     margin-top: -17em;
   }
   .fun > *:nth-child(2) {
