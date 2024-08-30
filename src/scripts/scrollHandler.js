@@ -43,6 +43,12 @@ export const projectImages = {
     'imgs/planet-pic4.png',
   ],
 
+  project4: [
+    'imgs/machine-sport.png',
+    'imgs/machine-sport2.png',
+    'imgs/machine-sport3.png',
+  ],
+
   // Add more projects as needed
 };
 
@@ -51,6 +57,7 @@ export const useProjectIndexes = () => {
   const [project1Index, setProject1Index] = useState(0);
   const [project2Index, setProject2Index] = useState(0);
   const [project3Index, setProject3Index] = useState(0);
+  const [project4Index, setProject4Index] = useState(0);
   // Add more state variables for additional projects as needed
 
   // Function to handle previous image for Project 1
@@ -82,16 +89,28 @@ export const useProjectIndexes = () => {
     setProject3Index((prevIndex) => (prevIndex < projectImages.project2.length - 1 ? prevIndex + 1 : 0));
   };
 
+  const handlePreviousProject4 = () => {
+    setProject4Index((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : projectImages.project2.length - 1));
+  };
+
+  // Function to handle next image for Project 2
+  const handleNextProject4 = () => {
+    setProject4Index((prevIndex) => (prevIndex < projectImages.project2.length - 1 ? prevIndex + 1 : 0));
+  };
+
 
   return {
     project1Index,
     project2Index,
     project3Index,
+    project4Index,
     handlePreviousProject1,
     handleNextProject1,
     handlePreviousProject2,
     handleNextProject2,
     handlePreviousProject3,
     handleNextProject3,
+    handlePreviousProject4,
+    handleNextProject4,
   };
 };
