@@ -81,21 +81,21 @@ export const useProjectIndexes = () => {
   };
 
   const handlePreviousProject3 = () => {
-    setProject3Index((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : projectImages.project2.length - 1));
+    setProject3Index((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : projectImages.project3.length - 1));
   };
 
   // Function to handle next image for Project 2
   const handleNextProject3 = () => {
-    setProject3Index((prevIndex) => (prevIndex < projectImages.project2.length - 1 ? prevIndex + 1 : 0));
+    setProject3Index((prevIndex) => (prevIndex < projectImages.project3.length - 1 ? prevIndex + 1 : 0));
   };
 
   const handlePreviousProject4 = () => {
-    setProject4Index((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : projectImages.project2.length - 1));
+    setProject4Index((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : projectImages.project4.length - 1));
   };
 
   // Function to handle next image for Project 2
   const handleNextProject4 = () => {
-    setProject4Index((prevIndex) => (prevIndex < projectImages.project2.length - 1 ? prevIndex + 1 : 0));
+    setProject4Index((prevIndex) => (prevIndex < projectImages.project4.length - 1 ? prevIndex + 1 : 0));
   };
 
 
